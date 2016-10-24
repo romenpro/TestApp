@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_0.xsd"
+    version="2.0">
+
+  <application>
+    <locale-config>
+      <default-locale>ru</default-locale>
+      <supported-locale>de</supported-locale>
+      <supported-locale>de_DE</supported-locale>
+      <supported-locale>de_AT</supported-locale>
+      <supported-locale>de_CH</supported-locale>
+    </locale-config>
+  </application>
+
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>loginPass</from-outcome>
+            <to-view-id>/app/main.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>loginFail</from-outcome>
+            <to-view-id>/error.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+
+</faces-config>

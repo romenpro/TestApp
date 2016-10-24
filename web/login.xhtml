@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:tc="http://myfaces.apache.org/tobago/component"
+      xmlns:tx="http://myfaces.apache.org/tobago/extension">
+<f:view>
+    <tc:page label="Вход">
+        <f:facet name="layout">
+            <tc:gridLayout columns="fix" rows="fix;fix;fix;*" margin="20px"/>
+        </f:facet>
+        <tx:in label="Имя пользователя" value="#{loginController.user.lgn}"/>
+        <tx:in label="Пароль" password="true" value="#{loginController.user.psw}"/>
+        <tc:panel>
+            <f:facet name="layout">
+                <tc:gridLayout rows="fix;*"/>
+            </f:facet>
+            <tc:button label="Войти" action="#{loginController.loginAction}"></tc:button>
+        </tc:panel>
+    </tc:page>
+</f:view>
+</html>

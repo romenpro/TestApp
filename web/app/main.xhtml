@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:tc="http://myfaces.apache.org/tobago/component"
+      xmlns:tx="http://myfaces.apache.org/tobago/extension">
+<f:view>
+    <tc:page label="Заказы">
+        <tc:panel>
+            <f:facet name="layout">
+                <tc:gridLayout columns="5*;*" margin="20px"/>
+            </f:facet>
+
+            <tc:sheet value="#{orderController.listOrder}" var="list" selectable="single" state="#{orderController.selectedOrder}"
+                    columns="1*;4*;4*;4*;4*">
+                <tc:column label="N">
+                    <tc:out value="#{list.id}"/>
+                </tc:column>
+                <tc:column label="Заказчик">
+                    <tc:out value="#{list.customer}"/>
+                </tc:column>
+                <tc:column label="Адрес доставки">
+                    <tc:out value="#{list.address}"/>
+                </tc:column>
+                <tc:column label="Дата и время заказа">
+                    <tc:out value="#{list.orderDate}" converter="DateConverter"/>
+                </tc:column>
+                <tc:column label="Состояние заказа">
+                    <tc:out value="#{list.status}"/>
+                </tc:column>
+            </tc:sheet>
+
+            <tc:panel>
+                <f:facet name="layout">
+                    <tc:gridLayout columns="*" rows="auto;auto"/>
+                </f:facet>
+                <tc:button label="Добавить" actionListener="#{orderController.newOrder}">
+                    <f:facet name="popup">
+                        <tc:popup>
+                            <f:facet name="layout">
+                                <tc:gridLayout columns="auto" rows="auto"/>
+                            </f:facet>
+                            <tc:box label="Добавить заказ">
+                                <f:facet name="layout">
+                                    <tc:gridLayout rows="auto;auto;auto;auto;auto"/>
+                                </f:facet>
+                                <tx:in label="Заказчик" value="#{orderController.order.customer}" required="true"/>
+                                <tx:in label="Адрес доставки" value="#{orderController.order.address}" required="true"/>
+                                <tx:date label="Дата и время заказа" value="#{orderController.order.orderDate}">
+                                    <f:convertDateTime dateStyle="medium" type="both" timeStyle="medium"/>
+                                </tx:date>
+                                <tx:selectOneChoice value="#{orderController.order.status}" label="Состояние заказа">
+                                    <tc:selectItem itemLabel="Новый" itemValue="Новый"/>
+                                    <tc:selectItem itemLabel="Исполняется" itemValue="Исполняется"/>
+                                    <tc:selectItem itemLabel="Выполнено" itemValue="Выполнено"/>
+                                </tx:selectOneChoice>
+                                <tc:panel>
+                                    <f:facet name="layout">
+                                        <tc:gridLayout columns="auto;auto;*"/>
+                                    </f:facet>
+                                    <tc:button label="Сохранить" actionListener="#{orderController.saveOrder}">
+                                        <tc:attribute name="renderedPartially" value="sheet"/>
+                                        <tc:attribute name="popupClose" value="afterSubmit"/>
+                                    </tc:button>
+                                    <tc:button label="Отмена">
+                                        <tc:attribute name="popupClose" value="immediate"/>
+                                    </tc:button>
+                                </tc:panel>
+                            </tc:box>
+                        </tc:popup>
+                    </f:facet>
+                </tc:button>
+                <tc:button label="Изменить" actionListener="#{orderController.editOrder}">
+                    <f:facet name="popup">
+                        <tc:popup>
+                            <f:facet name="layout">
+                                <tc:gridLayout columns="auto" rows="auto"/>
+                            </f:facet>
+                            <tc:box label="Добавить заказ">
+                                <f:facet name="layout">
+                                    <tc:gridLayout rows="auto;auto;auto;auto;auto"/>
+                                </f:facet>
+                                <tx:in label="Заказчик" value="#{orderController.order.customer}" required="true"/>
+                                <tx:in label="Адрес доставки" value="#{orderController.order.address}" required="true"/>
+                                <tx:date label="Дата и время заказа" value="#{orderController.order.orderDate}">
+                                    <f:convertDateTime dateStyle="medium" type="both" timeStyle="medium"/>
+                                </tx:date>
+                                <tx:selectOneChoice value="#{orderController.order.status}" label="Состояние заказа">
+                                    <tc:selectItem itemLabel="Новый" itemValue="Новый"/>
+                                    <tc:selectItem itemLabel="Исполняется" itemValue="Исполняется"/>
+                                    <tc:selectItem itemLabel="Выполнено" itemValue="Выполнено"/>
+                                </tx:selectOneChoice>
+                                <tc:panel>
+                                    <f:facet name="layout">
+                                        <tc:gridLayout columns="auto;auto;*"/>
+                                    </f:facet>
+                                    <tc:button label="Сохранить" actionListener="#{orderController.saveChangedOrder}">
+                                        <tc:attribute name="renderedPartially" value="sheet"/>
+                                        <tc:attribute name="popupClose" value="afterSubmit"/>
+                                    </tc:button>
+                                    <tc:button label="Отмена">
+                                        <tc:attribute name="popupClose" value="immediate"/>
+                                    </tc:button>
+                                </tc:panel>
+                            </tc:box>
+                        </tc:popup>
+                    </f:facet>
+                </tc:button>
+            </tc:panel>
+        </tc:panel>
+    </tc:page>
+</f:view>
+</html>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source source="LOCAL" name="ODBC - testDB.mdb" uuid="3bc73016-5332-4a7f-b8f7-01397867ba22">
+    <database-info product="ACCESS" version="04.00.0000" jdbc-version="2.0" driver-name="JDBC-ODBC Bridge (ACEODBC.DLL)" driver-version="2.0001 (Microsoft Office 2007 Access database engine)">
+      <extra-name-characters>~@#$%^&amp;*_-+=\}{&quot;&apos;;:?/&gt;&lt;,.![]|</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="exact" quoted-identifiers="mixed"/>
+    <schema name="" catalog="c:\testDB.MDB"/>
+    <table name="testTable" schema="" catalog="c:\testDB.MDB" type="TABLE">
+      <column name="id" sqlType="COUNTER" length="10" precision="0" nullable="false" jdbcType="4"/>
+      <column name="customer" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="address" sqlType="VARCHAR" length="50" precision="0" nullable="true" jdbcType="12"/>
+      <column name="orderDate" sqlType="DATETIME" length="19" precision="0" nullable="true" jdbcType="93"/>
+      <column name="status" sqlType="VARCHAR" length="10" precision="0" nullable="true" jdbcType="12"/>
+    </table>
+  </data-source>
+</component>

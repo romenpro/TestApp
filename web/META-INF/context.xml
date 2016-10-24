@@ -1,0 +1,8 @@
+<Context>
+    <Resource name="jdbc/testRS"
+              auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="sun.jdbc.odbc.JdbcOdbcDriver"
+              url="jdbc:odbc:Driver= {Microsoft Access Driver (*.mdb, *.accdb)};DBQ=c:\\testDB.mdb"
+              factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"/>
+</Context>
